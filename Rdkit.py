@@ -65,3 +65,16 @@ with col2:
     mol = Chem.MolFromSmiles(smiles)
     print(mol)"""
     st.code(code, language="python")
+
+    st.title('🎈 Reading sets of molecules')
+
+    code = """  
+    file_name = 'somesmilesfile.smi'
+    with open(file_name, "r") as ins:
+    smiles = []
+    for line in ins:
+        smiles.append(line.split('\n')[0])
+    print('# of SMILES:', len(smiles))"""
+    st.code(code, language="python")
+
+    
