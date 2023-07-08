@@ -99,3 +99,21 @@ with col2:
     DataStructs.FingerprintSimilarity(fp1, fp2)"""
 
     st.code(code, language="python")
+
+    with col2:
+    st.header('🎈 Molecular Descriptors`')
+
+    code = """ 
+    #Import libraries
+    from rdkit import Chem
+
+    set mols
+    m1 = Chem.MolFromSmiles("CCCCO")
+
+    #Calculate MDs
+    print ('H-bond donors:', Descriptors.NumHDonors(m1))
+    print ('Molecular weight:', Descriptors.MolWt(m1))
+    print ('LogP:', Descriptors.MolLogP(m1))
+    """
+
+    st.code(code, language="python")
