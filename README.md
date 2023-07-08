@@ -1,21 +1,12 @@
 # 📦 Streamlit App Starter Kit 
 ```
-⬆️ (Replace above with your app's name)
+⬆️ Chemoinformatics multi apps
 ```
 
-Description of the app ...
+Explore the fascinating world of chemoinformatics through our multi-app Streamlit platform, where you can dive into diverse athings such as QSAR modeling of Ames test, Rdkit cheat sheet, molecular visualization, and more, all in one seamless interface
 
-## Demo App
+## Demo App coming soon
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://starter-kit.streamlitapp.com/)
 
-## Section Heading
 
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
