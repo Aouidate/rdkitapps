@@ -1,9 +1,9 @@
 import streamlit as st
 #Devid the screen into two columns
 st.markdown("<h1 style='text-align: center; color: grey;'>Rdkit Cheat Sheet</h1>", unsafe_allow_html=True)
-#st.title("<center>Rdkit Cheat Sheet</center>")
+#st.title("Rdkit Cheat Sheet")
 
-col1, col2 = st.columns(2)
+col1, col2, = st.columns(2)
 
 with col1:
     st.header('🎈 Installation')
@@ -31,7 +31,7 @@ with col1:
     #Inpired from byiwatobipen
     st.code(code, language="python")
 
-with col1:
+with col2:
     st.header('🎈 Calculate QED')
 
     code = """
@@ -60,7 +60,7 @@ with col1:
     #Inpired from byiwatobipen
     st.code(code, language="python")
 
-with col2:
+with col1:
     st.header('🎈 Get a RDKit molecule from SMILES')
 
     code = """  smiles = 'COC(=O)c1c[nH]c2cc(OC(C)C)c(OC(C)C)cc2c1=O'
@@ -100,14 +100,14 @@ with col2:
 
     st.code(code, language="python")
 
-    with col2:
-    st.header('🎈 Molecular Descriptors`')
+with col1:
+    st.header('🎈 Molecular Descriptors')
 
     code = """ 
-    #Import libraries
+        #Import libraries
     from rdkit import Chem
 
-    set mols
+    #set mols
     m1 = Chem.MolFromSmiles("CCCCO")
 
     #Calculate MDs
