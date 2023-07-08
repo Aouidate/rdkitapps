@@ -44,7 +44,7 @@ with col2:
     from rdkit.Chem.Descriptors import qed
     print( rdBase.rdkitVersion )
     
-    sdfpath = os.path.join( RDConfig.RDDocsDir, "Book/data/cdk2.sdf" )
+    sdfpath = os.path.join( RDConfig.RDDocsDir, "path/to/sdffile.sdf" )
     mols = [ m for m in Chem.SDMolSupplier( sdfpath ) if m != None ]
     df = PandasTools.LoadSDF( sdfpath )
     print( len( mols ))
@@ -101,7 +101,7 @@ with col2:
     st.code(code, language="python")
 
 with col1:
-    st.header('🎈 Molecular Descriptors')
+    st.header("🎈 Molecular Descriptors 'MDs'")
 
     code = """ 
         #Import libraries
@@ -114,6 +114,24 @@ with col1:
     print ('H-bond donors:', Descriptors.NumHDonors(m1))
     print ('Molecular weight:', Descriptors.MolWt(m1))
     print ('LogP:', Descriptors.MolLogP(m1))
+    """
+
+    st.code(code, language="python")
+with col2:
+    st.header("🎈 Draw molecules ")
+
+    code = """ 
+        #Import libraries
+    from rdkit import Chem
+    from rdkit import Draw
+
+    #read mols 
+
+    sdfpath = os.path.join( RDConfig.RDDocsDir, "path/to/sdffile.sdf" )
+    mols = [ m for m in Chem.SDMolSupplier( sdfpath ) if m != None ]
+
+    #Draw mols
+    Draw.MolsToGridImage(mols, molsPerRow=8)
     """
 
     st.code(code, language="python")
