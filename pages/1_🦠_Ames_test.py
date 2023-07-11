@@ -14,33 +14,37 @@ import streamlit as st
 ######################
 ## Calculate molecular descriptors
 
+st.title("AmesTesto")
+
 def Calculate (smiles, verbose = False):
-    mols = []
-    for sm in smiles:
-        mol = Chem.MolFromSmiles(sm)
-        mols.append(mol)
-    
-    baseData= np.arange(1,1)
-    i=0
-    for mol in mols:
+    try :
+        mols = []
+        for sm in smiles:
+            mol = Chem.MolFromSmiles(sm)
+            mols.append(mol)
+        baseData= np.arange(1,1)
+        i=0
 
-        desc_MolLogP = Descriptors.MolLogP(mol)
-        desc_TPSA = Descriptors.TPSA(mol)
+        for mol in mols:
 
-        row = np.array([desc_MolLogP,
-                       desc_TPSA])
+            desc_MolLogP = Descriptors.MolLogP(mol)
+            desc_TPSA = Descriptors.TPSA(mol)
 
-        if(i==0):
-            baseData=row
-        else:
-            baseData=np.vstack([baseData, row])
-        i=i+1
+            row = np.array([desc_MolLogP,
+                        desc_TPSA])
 
-    columnNames=["MolLogP", "TPSA"]
-    descriptors = pd.DataFrame(data=baseData,columns=columnNames)
+            if(i==0):
+                baseData=row
+            else:
+                baseData=np.vstack([baseData, row])
+            i=i+1
 
-    return descriptors
+        columnNames=["MolLogP", "TPSA"]
+        descriptors = pd.DataFrame(data=baseData,columns=columnNames)
 
+        return descriptors
+    except:
+         st.error('Please enter a valid structure')
 ######################
 # Page Title
 ######################
@@ -49,7 +53,7 @@ image = Image.open('AMES_logo.jpg')
 
 st.image(image, use_column_width=True)
 
-st.write("""# Adnane's Website : Ames mutagenicity Prediction Website This website predicts the *AMES test* behavior of molecules !""")
+st.markdown("<h2 style='text-align: justify; color: black;'> AmesTesto: Accurately Predict Molecular Mutagenicity with Adnane's Webapp !</h2>", unsafe_allow_html=True)
 
 
 ######################
@@ -64,12 +68,12 @@ SMILES_input = "CCCCO\nc1ccccc1\nCN"
 SMILES = st.sidebar.text_area("SMILES input", SMILES_input)
 SMILES = "C\n" + SMILES #Adds C as a dummy, first item
 SMILES = SMILES.split('\n')
-
-st.header('Input SMILES')
-SMILES[1:] # Skips the dummy first item
+#st.header('Model information')
+#SMILES[1:] # Skips the dummy first item
 
 ## Calculate molecular descriptors
 #st.header('Computed molecular descriptors')
+
 X = Calculate(SMILES)
 #X[1:] # Skips the dummy first item
 
@@ -81,8 +85,15 @@ X = Calculate(SMILES)
 load_model = pickle.load(open('Ames_calssifcator.pkl', 'rb'))
 
 # Apply model to make predictions
-prediction = load_model.predict(X)
+try:
+    prediction = load_model.predict(X)
+    prediction = pd.DataFrame(prediction, columns = ["Amest test"], index = SMILES)
+except:
+    pass
 #prediction_proba = load_model.predict_proba(X)
 
 st.header('Predicted Mutagenicity')
-prediction[1:] # Skips the dummy first item 
+try:
+    prediction[1:] # Skips the dummy first item 
+except:
+    pass

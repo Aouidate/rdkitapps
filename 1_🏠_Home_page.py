@@ -3,13 +3,16 @@ from PIL import Image
 
 st.markdown("<h1 style='text-align: center; color: grey;'>A little blog for different chemoinformatis apps and codes</h1>", unsafe_allow_html=True)
 
-st.markdown("""<div style='text-align: justify; color: black;'>Explore the fascinating world of chemoinformatics 🖥️ 🧪 through our multi-app Streamlit 
-platform, where you can dive into diverse things such as QSAR modeling of Ames test, Rdkit cheat sheet, molecular visualization, and more, all in one 
-seamless interface.
+st.markdown("""<div style='text-align: justify; color: black;'>Welcome to our Streamlit platform, where you can explore the fascinating world of 
+chemoinformatics with ease. Our multi-app platform provides you with an all-in-one solution for all your chemoinformatics needs, including QSAR 
+modeling of Ames test, a comprehensive Rdkit cheat sheet, molecular visualization, and much more - all in a single, seamless interface.
 
-By the way I am Adnane Aouidate and I will be sharing with you some exciting blogs, codes and articles in this small blog, I will also help you to discover the 
-chemoinformatics' world: to begin here is a streamlit multi web app, in which you will find many apps and code snippets...
 
+As an avid chemoinformatics enthusiast, I'm thrilled to be sharing with you exciting blogs, codes, and articles through this small blog. 
+With my help, you'll be able to discover the incredible world of chemoinformatics, starting with our Streamlit multi-web app. It features 
+an array of apps and code snippets that will help you dive deep into the world of chemoinformatics.
+
+Join me and embark on an exciting journey through the world of chemoinformatics, where you can make scientific breakthroughs using cutting-edge tech.
  </div>""", unsafe_allow_html=True)
 #st.markdown("Explore the fascinating world of chemoinformatics 🖥️ 🧪 through our multi-app Streamlit platform, where you can dive into diverse things such as QSAR modeling of Ames test, Rdkit cheat sheet, molecular visualization, and more, all in one seamless interface. I am Adnane Aouidate and I will be sharing with you some exciting blogs, codes, articles and also help you to discover the chemoinformatics' world: Here is the screenshot of a streamlit web app that I started to develop which will find many apps and code snippets I am an organic chemist by training, I statred my journey in molecular modelling and CADD from 2014 during my thesis since 2019 I'm working as postdoctoral researcher (chemoinformatician).")
 
@@ -26,7 +29,7 @@ st.markdown("""
     visit my github repos : 
     [Github](https://github.com/Aouidate/).
 
-    Below are a few github repo you might find interesting...
+    Below are a github repo you might find interesting...
 """)
 
 with st.container():
