@@ -4,11 +4,9 @@ from rdkit import Chem
 from PIL import Image
 from rdkit.Chem import Descriptors
 from rdkit.Chem import rdMolDescriptors
-from rdkit.Chem.Draw import SimilarityMaps
 import os
 from rdkit.Chem import rdBase, RDConfig
 from rdkit import Chem
-from rdkit.Chem import PandasTools
 from rdkit.Chem import QED
 import streamlit as st
 
