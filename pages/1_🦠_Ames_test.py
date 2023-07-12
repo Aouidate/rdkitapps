@@ -4,7 +4,6 @@ from rdkit import Chem
 from PIL import Image
 import joblib
 import pickle
-from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import Descriptors
 import streamlit as st
 
