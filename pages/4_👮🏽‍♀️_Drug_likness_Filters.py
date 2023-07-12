@@ -90,9 +90,9 @@ def Rule_of_3(row):
 # Page Title
 ######################
 
-image = Image.open('atome.png',  width=400)
+image = Image.open('atome.png') 
 
-st.image(image)
+st.image(image, width=400)
 
 st.write("""# Molecular descriptors Calculation!""")
 st.markdown("""<div style='text-align: justify; color: black;'> Looking for an innovative solution to predict drug likeness for your molecules? 
