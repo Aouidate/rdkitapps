@@ -24,8 +24,8 @@ st.markdown("""
     I share some code snippets about chemoinformatics, Drug Design, Data Science, AI  and related topics. 
     The posts and codes will mostly be shared on github and linkedin platforms.
     
-    You can find my articles on my [google scholar](https://scholar.google.com/citations?user=Yngy4o4AAAAJ&hl=en)
-    and if you would like to check when I publish new ones, you can 
+    You can find my scientific articles on my [google scholar](https://scholar.google.com/citations?user=Yngy4o4AAAAJ&hl=en)
+    and if you would like to check when I publish new codes, you can 
     visit my github repos : 
     [Github](https://github.com/Aouidate/).
 
