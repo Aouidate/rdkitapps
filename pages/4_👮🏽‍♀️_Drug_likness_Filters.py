@@ -90,7 +90,7 @@ def Rule_of_3(row):
 # Page Title
 ######################
 
-image = Image.open('atome.png',  width=400))
+image = Image.open('atome.png',  width=400)
 
 st.image(image)
 
