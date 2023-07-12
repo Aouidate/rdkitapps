@@ -29,7 +29,7 @@ st.markdown("""
     visit my github repos : 
     [Github](https://github.com/Aouidate/).
 
-    Below are a github repo you might find interesting...
+    Below is a github repo you might find interesting...
 """)
 
 with st.container():
