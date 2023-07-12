@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-st.markdown("<h1 style='text-align: center; color: grey;'>Exploring Various Chemoinformatics Applications and Codes for Drug Discovery- A Compact Blog</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: grey;'>Exploring Various Chemoinformatics Applications and Codes for Drug Discovery- A Compact Blog</h2>", unsafe_allow_html=True)
 
 st.markdown("""<div style='text-align: justify; color: black;'>Welcome to our Streamlit platform, where you can explore the fascinating world of 
 chemoinformatics with ease. Our multi-app platform provides you with an all-in-one solution for all your chemoinformatics needs, including QSAR 
