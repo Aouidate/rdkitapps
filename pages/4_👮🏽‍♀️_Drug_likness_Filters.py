@@ -87,12 +87,14 @@ def Rule_of_3(row):
         return 'No'
 
 ######################
-# Page Title
+# Page Image
 ######################
 
 image = Image.open('atome.png') 
-
-st.image(image, width=400)
+#Center the image
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+    st.image(image, width=350)
 
 st.write("""# Molecular descriptors Calculation!""")
 st.markdown("""<div style='text-align: justify; color: black;'> Looking for an innovative solution to predict drug likeness for your molecules? 
