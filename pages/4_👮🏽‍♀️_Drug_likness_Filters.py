@@ -15,7 +15,7 @@ import streamlit as st
 # Custom function
 ######################
 ## Calculate molecular descriptors
-
+#Inspired from Data Professor 
 st.title("Drug Likness Filters")
 
 def Calculate (smiles, verbose = False):
@@ -90,7 +90,7 @@ def Rule_of_3(row):
 # Page Image
 ######################
 
-image = Image.open('atome.png') 
+image = Image.open('./images/atome.png') 
 #Center the image
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
