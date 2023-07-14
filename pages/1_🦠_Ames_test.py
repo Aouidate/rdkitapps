@@ -48,7 +48,7 @@ def Calculate (smiles, verbose = False):
 # Page Title
 ######################
 
-image = Image.open('AMES_logo.jpg')
+image = Image.open('./images/AMES_logo.jpg')
 
 st.image(image, use_column_width=True)
 
