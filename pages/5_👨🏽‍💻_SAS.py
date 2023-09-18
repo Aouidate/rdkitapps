@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from rdkit import Chem, DataStructs
-from rdkit.Chem import PandasTools
-import numpy as np
-import pandas as pd
+#from rdkit.Chem import PandasTools
 from rdkit.Chem import rdFMCS, AllChem
 import streamlit as st
 import base64
