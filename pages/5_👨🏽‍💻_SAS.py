@@ -11,7 +11,7 @@ import base64
 import io
 from io import BytesIO
 
-st.markdown("<h2 style='text-align: center; color: grey;'>Structure-Activity Similarity (SAS) maps</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: grey;'>Structure-Activity Similarity (SAS) map</h2>", unsafe_allow_html=True)
 
 st.markdown("""<div style='text-align: justify; color: black; font-size: large'>In 2008, Rajarshi Guha and Jonn Van Drie published a technique that allows for the easy detection of compound pairs. 
             These pairs are unique in that a small change to their chemical structure can result in a significant difference in their 
