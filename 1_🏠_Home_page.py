@@ -14,10 +14,6 @@ an array of apps and code snippets that will help you dive deep into the world o
  </div>""", unsafe_allow_html=True)
 #st.markdown("Explore the fascinating world of chemoinformatics 🖥️ 🧪 through our multi-app Streamlit platform, where you can dive into diverse things such as QSAR modeling of Ames test, Rdkit cheat sheet, molecular visualization, and more, all in one seamless interface. I am Adnane Aouidate and I will be sharing with you some exciting blogs, codes, articles and also help you to discover the chemoinformatics' world: Here is the screenshot of a streamlit web app that I started to develop which will find many apps and code snippets I am an organic chemist by training, I statred my journey in molecular modelling and CADD from 2014 during my thesis since 2019 I'm working as postdoctoral researcher (chemoinformatician).")
 
-
-
-st.markdown("# Adnane Aouidate")
-st.markdown("## Chemoinformatics, data science researcher, ML and AI fan | Assistant professor")
 st.markdown("""
     I share some code snippets about chemoinformatics, Drug Design, Data Science, AI  and related topics. 
     The posts and codes will mostly be shared on github and linkedin platforms.
