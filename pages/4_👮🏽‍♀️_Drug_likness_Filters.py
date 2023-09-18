@@ -16,7 +16,8 @@ import streamlit as st
 ######################
 ## Calculate molecular descriptors
 #Inspired from Data Professor 
-st.title("Drug Likness Filters")
+
+st.markdown("<h2 style='text-align: center; color: grey;'>Drug Likness Filtersy</h2>", unsafe_allow_html=True)
 
 def Calculate (smiles, verbose = False):
     mols = []
