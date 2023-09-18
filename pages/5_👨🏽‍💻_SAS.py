@@ -13,12 +13,12 @@ from io import BytesIO
 
 st.markdown("<h2 style='text-align: center; color: grey;'>Structure-Activity Similarity (SAS) map</h2>", unsafe_allow_html=True)
 
-st.markdown("""<div style='text-align: justify; color: black; font-size: large'>In 2008, Rajarshi Guha and Jonn Van Drie published a technique that allows for the easy detection of compound pairs. 
-            These pairs are unique in that a small change to their chemical structure can result in a significant difference in their 
-            physical properties or biological activity.  Frequently, these modifications can greatly assist us in identifying the key 
-            functional components of the molecule that significantly contribute to its activity.  We can then synthesize additional 
-            compounds that either preserve or change these parts of the molecule. When engaging in structure-based design, we can take 
-            a look at crystal structures and try to understand the interactions being made by these substituents of the molecules.
+st.markdown("""<div style='text-align: justify; color: black; font-size: large'>SALI (Structure Activity Landscape Index) is a technique that was published by Rajarshi Guha and Jonn Van Drie In 2008 that allows for the easy detection of compound pairs. These pairs are unique in that a small change to their chemical structure can result in a significant difference in their physical properties or biological activity. Frequently, these modifications can greatly assist us in identifying the key functional components of the molecule that significantly contribute to its activity. 
+
+This web application allows users to scan Structure-Activity Relationships using Structure-Activity Similarity. It generates a Structure-Activity Similarity (SAS) map, enabling the identification of molecules with the highest SALI values. 
+
+The application was inspired by the works of Pat Walter.
+          
  </div>""", unsafe_allow_html=True)
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
