@@ -13,13 +13,7 @@ from io import BytesIO
 
 st.markdown("<h2 style='text-align: center; color: grey;'>Structure-Activity Similarity (SAS) map</h2>", unsafe_allow_html=True)
 
-st.markdown("""<div style='text-align: justify; color: black; font-size: large'>SALI (Structure Activity Landscape Index) is a technique that was published by Rajarshi Guha and Jonn Van Drie In 2008 that allows for the easy detection of compound pairs. These pairs are unique in that a small change to their chemical structure can result in a significant difference in their physical properties or biological activity. Frequently, these modifications can greatly assist us in identifying the key functional components of the molecule that significantly contribute to its activity. 
-
-This web application allows users to scan Structure-Activity Relationships using Structure-Activity Similarity. It generates a Structure-Activity Similarity (SAS) map, enabling the identification of molecules with the highest SALI values. 
-
-The application was inspired by the works of Pat Walter.
-          
- </div>""", unsafe_allow_html=True)
+st.markdown("<div style='text-align: justify; color: black; font-size: large'>SALI (Structure Activity Landscape Index) is a technique that was published by Rajarshi Guha and Jonn Van Drie In 2008 that allows for the easy detection of Activity cliffs (ACs) compound pairs. These pairs are unique in that a small change to their chemical structure can result in a significant difference in their physical properties or biological activity. Frequently, these modifications can greatly assist us in identifying the key functional components of the molecule that significantly contribute to its activity. This web application allows users to scan Structure-Activity Relationships using Structure-Activity Similarity. It generates a Structure-Activity Similarity (SAS) map, enabling the identification of molecules with the highest SALI values. </div>", unsafe_allow_html=True)
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 #st.markdown("<h2 style='text-align: center; color: grey;'>Structure-Activity Similarity (SAS) maps</h2>", unsafe_allow_html=True)
@@ -50,7 +44,7 @@ def calc(df, a=a, b=b, to_plot = True):
         fp_list = df.fp.values
         sal_list = []
         for i,fp in enumerate(df.fp):
-            sim_list = DataStructs.BulkTanimotoSimilarity(fp,fp_list)
+            Similarity = DataStructs.BulkTanimotoSimilarity(fp,fp_list)
             for j in range(0,i):
                 ii,jj = i,j
                 if pIC50_list[i] >= pIC50_list[j]:
@@ -58,16 +52,17 @@ def calc(df, a=a, b=b, to_plot = True):
                 else:
                     jj,ii = i,j
                 delta = abs(pIC50_list[i]-pIC50_list[j])
-                sim = sim_list[j]
+                sim = Similarity[j]
                 sal_list.append([ii,jj,sim,delta/(1-sim+0.001),delta, smiles_list[ii],smiles_list[jj],pIC50_list[ii],pIC50_list[jj]])
-        sal_df = pd.DataFrame(sal_list,columns=["i","j","sim_list","SAL","delta","SMILES_i","SMILES_j","pIC50_i","pIC50_j"])
-        sal_df.sort_values("SAL",ascending=False,inplace=True)
-        sal_df = sal_df[sal_df["sim_list"] !=1]
-        clifs = sal_df.loc[(sal_df["sim_list"]>=b) & (sal_df["delta"]>=a)]
+        sal_df = pd.DataFrame(sal_list,columns=["i","j","Similarity","SAL","delta","SMILES_i","SMILES_j","pIC50_i","pIC50_j"])
+        sal_df.rename(columns={"SAL":"SALI","delta":"Delta"}, inplace=True)
+        sal_df.sort_values("SALI",ascending=False,inplace=True)
+        sal_df = sal_df[sal_df["Similarity"] !=1]
+        clifs = sal_df.loc[(sal_df["Similarity"]>=b) & (sal_df["Delta"]>=a)]
 
         if to_plot:
                 fig, ax=plt.subplots(figsize=(10, 8))
-                im =ax.scatter(data=sal_df, x="sim_list", y="delta", s = "SAL", c ="SAL", cmap= "jet")
+                im =ax.scatter(data=sal_df, x="Similarity", y="Delta", s = "SALI", c ="SALI", cmap= "jet")
                 fig.colorbar(im,ax=ax, label = "SALI value")
                 plt.axhline(y=a) 
                 plt.axvline(x=b) 
@@ -76,11 +71,24 @@ def calc(df, a=a, b=b, to_plot = True):
                 plt.show()
                 st.pyplot(plt)
                 st.markdown(imagedownload (plt,'sali.png'), unsafe_allow_html=True)
-                st.write("The compounds with the highest SALI values are:" )
-                st.write(clifs.head(6))
+                st.write("Compound pairs that may present an activity clif are:" )
+                st.dataframe(clifs.head(6))
         return clifs.head(6)
     except (ZeroDivisionError, UnboundLocalError, ValueError, AttributeError) :
         print('Please upload your dataset in CSV format')
+    pass
+
+def convert_df(clifs):
+   return clifs.to_csv(index=False).encode('utf-8')
+try:
+    csv = convert_df(clifs)
+    st.download_button(
+    "Press to Download",
+    csv,
+    "file.csv",
+    "text/csv",
+    key='download-csv')
+except:
     pass
 def imagedownload (plt, filename):
     s = io.BytesIO()
@@ -99,3 +107,4 @@ calc(df=uploaded_file, to_plot=True)
 # if st.button('Calculate AD '):
 #williams_plot(X_train = uploaded_file1 , X_test = uploaded_file2, Y_true_train = uploaded_file3, Y_true_test = uploaded_file4, y_pred_train = uploaded_file5,y_pred_test = uploaded_file6, toPrint =True,toPlot=True)
    #st.write(results)
+st.markdown("""*[The application was inspired by the works of Pat Walter.](http://practicalcheminformatics.blogspot.com/)*""")
