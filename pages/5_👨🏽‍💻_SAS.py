@@ -71,7 +71,7 @@ def calc(df, a=a, b=b, to_plot = True):
                 plt.show()
                 st.pyplot(plt)
                 st.markdown(imagedownload (plt,'sali.png'), unsafe_allow_html=True)
-                st.write("Here, we show up to 6 top compound pairs that may present an activity cliffs:" )
+                st.write("Here, we show up to 6 top compound pairs that may be activity cliffs in your data:" )
                 st.dataframe(clifs.head(6))
         return clifs.head(6)
     except (ZeroDivisionError, UnboundLocalError, ValueError, AttributeError) :
