@@ -71,7 +71,7 @@ def calc(df, a=a, b=b, to_plot = True):
                 plt.show()
                 st.pyplot(plt)
                 st.markdown(imagedownload (plt,'sali.png'), unsafe_allow_html=True)
-                st.write("Compound pairs that may present an activity clif are:" )
+                st.write("Here, we show up to 6 top compound pairs that may present an activity cliffs:" )
                 st.dataframe(clifs.head(6))
         return clifs.head(6)
     except (ZeroDivisionError, UnboundLocalError, ValueError, AttributeError) :
@@ -107,5 +107,5 @@ calc(df=uploaded_file, to_plot=True)
 # if st.button('Calculate AD '):
 #williams_plot(X_train = uploaded_file1 , X_test = uploaded_file2, Y_true_train = uploaded_file3, Y_true_test = uploaded_file4, y_pred_train = uploaded_file5,y_pred_test = uploaded_file6, toPrint =True,toPlot=True)
    #st.write(results)
-st.markdown("""*[The application was inspired by the works of Pat Walter.](http://practicalcheminformatics.blogspot.com/)*""")
+st.markdown("""*[The application was inspired by the works of Pat Walters.](http://practicalcheminformatics.blogspot.com/)*""")
 st.markdown("""*[For more information about the method click here](https://pubs.acs.org/doi/10.1021/ci7004093)*""")
