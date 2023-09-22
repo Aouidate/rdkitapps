@@ -113,3 +113,4 @@ try:
     prediction[1:] # Skips the dummy first item 
 except:
     pass
+st.markdown(""" [Click here, for more information about the Estimated Solubility (ESOL) model]( https://pubs.acs.org/doi/10.1021/ci034243x ) """)
