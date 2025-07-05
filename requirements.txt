@@ -6,4 +6,4 @@ rdkit
 pillow>=9.2.0
 matplotlib
 seaborn == 0.12.0
-altair
+altair < 5
